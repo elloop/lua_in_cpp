@@ -6,7 +6,7 @@
 
 **1. clone branch master, and enter root dir of this project.**
 
-**2. build with cmake (version 3.0+, if your camke version is below 3.0, please edit `cmake_minimum_required` field in CMakeLists.txt of this project.)**
+**2. build with cmake (version 3.0+ recommended, if your camke version is below 3.0, please edit `cmake_minimum_required` field in CMakeLists.txt of this project.)**
 
 ```c++
 mkdir build && cd build
