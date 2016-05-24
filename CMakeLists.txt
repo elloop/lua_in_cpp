@@ -1,11 +1,11 @@
 cmake_minimum_required ( VERSION 3.0)
-project(lua_cpp)
+project(lua_in_cpp)
 
 # export compilation_database for YouCompleteMe Plugin in VIM.
 set( CMAKE_EXPORT_COMPILE_COMMANDS 1 )
 
 
-include_directories(${PROJECT_SOURCE_DIR}/src)
+include_directories(${PROJECT_SOURCE_DIR}/)
 
 set(CXX_FLAGS -std=c++11 -g -Wall)
 string(REPLACE ";" " " CMAKE_CXX_FLAGS "${CXX_FLAGS}")
@@ -14,10 +14,12 @@ set(CMAKE_CXX_COMPILER      "clang++" )
 set(CMAKE_CXX_FLAGS_DEBUG   "-O0" )
 set(CMAKE_CXX_FLAGS_RELEASE "-O2 -finline-limit=1000 -DNDEBUG " )
 
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/${PROJECT_NAME}/bin)
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/bin/)
 
 set(SRC_LIST
     src/main.cpp
+    src/extend_program_demo.cpp
+    src/include/lua_util.cpp
     src/lapi.c
     src/lauxlib.c
     src/lbaselib.c
@@ -51,7 +53,7 @@ set(SRC_LIST
     )
 
 foreach(src ${SRC_LIST})
-    message("src: " ${src})
+    #message("src: " ${src})
 endforeach()
 
 add_executable(${PROJECT_NAME} ${SRC_LIST})

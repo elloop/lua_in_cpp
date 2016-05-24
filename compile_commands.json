@@ -1,0 +1,167 @@
+[
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "clang++    -std=c++11 -g -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/main.cpp.o -c /Users/sunyongjian1/codes/lua_in_cpp/src/main.cpp",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/main.cpp"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "clang++    -std=c++11 -g -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/extend_program_demo.cpp.o -c /Users/sunyongjian1/codes/lua_in_cpp/src/extend_program_demo.cpp",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/extend_program_demo.cpp"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "clang++    -std=c++11 -g -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/include/lua_util.cpp.o -c /Users/sunyongjian1/codes/lua_in_cpp/src/include/lua_util.cpp",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/include/lua_util.cpp"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/lapi.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/lapi.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/lapi.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/lauxlib.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/lauxlib.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/lauxlib.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/lbaselib.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/lbaselib.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/lbaselib.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/lcode.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/lcode.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/lcode.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/ldblib.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/ldblib.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/ldblib.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/ldebug.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/ldebug.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/ldebug.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/ldo.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/ldo.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/ldo.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/ldump.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/ldump.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/ldump.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/lfunc.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/lfunc.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/lfunc.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/lgc.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/lgc.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/lgc.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/linit.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/linit.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/linit.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/liolib.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/liolib.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/liolib.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/llex.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/llex.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/llex.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/lmathlib.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/lmathlib.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/lmathlib.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/lmem.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/lmem.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/lmem.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/loadlib.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/loadlib.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/loadlib.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/lobject.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/lobject.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/lobject.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/lopcodes.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/lopcodes.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/lopcodes.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/loslib.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/loslib.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/loslib.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/lparser.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/lparser.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/lparser.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/lstate.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/lstate.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/lstate.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/lstring.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/lstring.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/lstring.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/lstrlib.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/lstrlib.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/lstrlib.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/ltable.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/ltable.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/ltable.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/ltablib.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/ltablib.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/ltablib.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/ltm.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/ltm.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/ltm.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/lundump.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/lundump.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/lundump.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/lvm.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/lvm.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/lvm.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/lzio.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/lzio.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/lzio.c"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp",
+  "command": "/usr/bin/cc    -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp    -o CMakeFiles/lua_cpp.dir/src/print.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/print.c",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/print.c"
+}
+]

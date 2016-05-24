@@ -1,5 +1,6 @@
 #include <iostream>
 #include "lua.hpp"
+#include "extend_program_demo.h"
 
 void simple_lua_interprator(lua_State* lua) {
     char buff[256];
@@ -45,6 +46,8 @@ void print_lua_stack(lua_State* lua) {
 
 int main() {
 
+    test_extend_program();
+    /*
     lua_State* lua = luaL_newstate();
 
     lua_pushnil(lua);
@@ -72,5 +75,7 @@ int main() {
     printf("%s\n", lua_typename(lua, stack_size + 2));
     
     lua_close(lua);
+    */
+
     return 0;
 }
