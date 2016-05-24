@@ -1,6 +1,4 @@
 -- require 'math'
-
-height = 300
 -- local x = math.random()
 -- width  = math.max(x*10, 8)
 
@@ -13,3 +11,8 @@ else
     height = 2
 end
 
+background = {
+    r = 120,
+    g = 200,
+    b = 255
+}
