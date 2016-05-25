@@ -3,7 +3,7 @@
 
 static const char* kScriptName = "res/extend_demo.lua";
 
-void test_read_global_frome_lua(lua_State* lua, const char* fileName, int& w, int& h) {
+void testReadGlobalFromeLua(lua_State* lua, const char* fileName, int& w, int& h) {
     if (luaL_loadfile(lua, fileName) || lua_pcall(lua, 0, 0, 0)) {
         error(lua, "fail to run script: %s", lua_tostring(lua, -1));
     }
@@ -20,6 +20,26 @@ void test_read_global_frome_lua(lua_State* lua, const char* fileName, int& w, in
     h = lua_tointeger(lua, -1);
 }
 
+// in Lua 5.1, lua_getfield is a special version of lua_gettable for string index.
+// lua_getfield(L, -1, key) 
+//
+// is equal to:
+//
+// lua_pushstring(L, key);
+// lua_gettable(L, -2);
+//
+// likely, lua_settable(L, table_index) is equal to : lua_push***(L, value) && lua_setfield(L, table_index, key);
+//
+int getIntFieldInLua51(lua_State* lua, const char* key) {
+    lua_getfield(lua, -1, key);
+    if (!lua_isnumber(lua, -1)) {
+        error(lua, "%s field in table is not a number", key);
+    }
+    int result = lua_tonumber(lua, -1);
+    lua_settop(lua, -2); // equals to lua_pop(lua, 1);
+    return result;
+}
+
 int getIntField(lua_State* lua, const char* key) {
     lua_pushstring(lua, key);
     lua_gettable(lua, -2);
@@ -31,7 +51,7 @@ int getIntField(lua_State* lua, const char* key) {
     return result;
 }
 
-void test_read_lua_table(lua_State* lua) {
+void testReadLuaTable(lua_State* lua) {
     int r(0), g(0), b(0);
 
     const char* tableName = "background";
@@ -40,10 +60,18 @@ void test_read_lua_table(lua_State* lua) {
         error(lua, "%s is not a table", tableName);
     }
 
+    elloop::pln("get field r, g, b use lua_gettable(state, table_index)");
     r = getIntField(lua, "r");
     g = getIntField(lua, "g");
     b = getIntField(lua, "b");
+    psln(r);
+    psln(g);
+    psln(b);
 
+    elloop::pln("get field r, g, b use lua_getfield(state, table_index, key)");
+    r = getIntFieldInLua51(lua, "r");
+    g = getIntFieldInLua51(lua, "g");
+    b = getIntFieldInLua51(lua, "b");
     psln(r);
     psln(g);
     psln(b);
@@ -54,12 +82,12 @@ void test_extend_program() {
 
     // read lua global
     int width(0), height(0);
-    test_read_global_frome_lua(lua, kScriptName, width, height);
+    testReadGlobalFromeLua(lua, kScriptName, width, height);
     psln(width);
     psln(height);
 
     // read lua table.
-    test_read_lua_table(lua);
+    testReadLuaTable(lua);
 
     
     lua_close(lua);
