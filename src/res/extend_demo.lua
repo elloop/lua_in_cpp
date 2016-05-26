@@ -16,3 +16,7 @@ background = {
     g = 200,
     b = 255
 }
+
+function add(x, y)
+    return x + y
+end

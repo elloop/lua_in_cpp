@@ -39,6 +39,7 @@ namespace elloop {
 #define LOGV(...)  LOGV__(__VA_ARGS__)
 #endif
 
+#define pv(...) LOGD(__VA_ARGS__)
 
 
 template <typename T>

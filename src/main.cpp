@@ -107,9 +107,9 @@ void testPrintStackFunction() {
 
 int main() {
 
-    // test_extend_program();
+    testExtendProgram();
 
-    testPrintStackFunction();
+    // testPrintStackFunction();
 
     return 0;
 }
