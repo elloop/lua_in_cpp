@@ -20,3 +20,20 @@ background = {
 function add(x, y)
     return x + y
 end
+
+function concat(str, n)
+    -- print(str .. tostring(n))
+end
+
+function fufudezheng(x, y)
+    -- print(type(x))
+    -- print(type(y))
+    if not x and not y then
+        return true
+    elseif x and y then
+        return true
+    else
+        return false
+    end
+end
+

@@ -2,6 +2,7 @@
 #include "src/lua.hpp"
 #include "src/include/inc.h"
 #include "src/extend_program_demo.h"
+#include "src/lua_function_caller.h"
 
 using namespace elloop;
 
@@ -107,9 +108,11 @@ void testPrintStackFunction() {
 
 int main() {
 
-    testExtendProgram();
+    // testExtendProgram();
 
     // testPrintStackFunction();
+
+    testLuaCaller();
 
     return 0;
 }

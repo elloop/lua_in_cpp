@@ -18,6 +18,7 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/bin/)
 
 set(SRC_LIST
     src/main.cpp
+    src/lua_function_caller.cpp
     src/extend_program_demo.cpp
     src/include/lua_util.cpp
     src/lapi.c
