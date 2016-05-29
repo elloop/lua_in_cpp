@@ -1,5 +1,5 @@
 #include <cstdlib>
-#include "src/include/lua_util.h"
+#include "include/lua_util.h"
 
 
 void error(lua_State* lua, const char* format, ...) {
