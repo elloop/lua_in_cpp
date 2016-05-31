@@ -13,20 +13,22 @@ using namespace elloop;
 
 
 void printLuaStack(lua_State* lua) {
+
     pln("========= content of stack from top to bottom: ===========");
+
     int stackSize = lua_gettop(lua);
     for (int i=stackSize; i>0; --i) {
-        printf("%d\t", i);
+        pv("%d [%d]\t", i, -1 - (stackSize - i));
         int t = lua_type(lua, i);
         switch (t) {
             case LUA_TNUMBER:
-                printf("%s: %.2f", lua_typename(lua, t), lua_tonumber(lua, i));
+                pv("%s: \t%.2f\n", lua_typename(lua, t), lua_tonumber(lua, i));
                 break;
             case LUA_TBOOLEAN:
-                printf("%s: %d", lua_typename(lua, t), lua_toboolean(lua, i));
+                pv("%s: \t%d\n", lua_typename(lua, t), lua_toboolean(lua, i));
                 break;
             case LUA_TSTRING:
-                printf("%s: %s", lua_typename(lua, t), lua_tostring(lua, i));
+                pv("%s: \t%s\n", lua_typename(lua, t), lua_tostring(lua, i));
                 break;
             default:
                 // LUA_TTABLE
@@ -35,10 +37,9 @@ void printLuaStack(lua_State* lua) {
                 // LUA_TLIGHTUSERDATA
                 // LUA_TUSERDATA
                 // LUA_TNIL
-                printf("%s", lua_typename(lua, t));
+                pv("%s\n", lua_typename(lua, t));
                 break;
         }
-        printf("\t %d", -1 - (stackSize - i));
     }
     psln(stackSize);
 }
@@ -57,6 +58,9 @@ void testPrintStackFunction() {
     lua_pushstring(lua, "hello world"); ++stackSize; // 3
     lua_pushboolean(lua, 1);            ++stackSize; // 4
     lua_pushinteger(lua, 100);          ++stackSize; // 5
+
+    printLuaStack(lua);
+
     lua_pushthread(lua);                ++stackSize; // 6
     lua_newtable(lua);                  ++stackSize; // 7
 

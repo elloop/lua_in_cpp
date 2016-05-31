@@ -7,7 +7,7 @@ static const char* kScriptName = "res/extend_demo.lua";
 
 void testReadGlobalFromeLua(lua_State* lua, const char* fileName, int& w, int& h) {
     if (luaL_loadfile(lua, fileName) || lua_pcall(lua, 0, 0, 0)) {
-        error(lua, "fail to run script: %s", lua_tostring(lua, -1));
+        error(lua, "fail to load script: %s", lua_tostring(lua, -1));
     }
 
     lua_getglobal(lua, "width");

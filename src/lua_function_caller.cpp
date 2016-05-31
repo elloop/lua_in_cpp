@@ -108,7 +108,7 @@ void testLuaCaller() {
     psln(dz);
 
     bool bx, by, bz;
-    bx = true, by = false, bz = true;
+    bx = false, by = false, bz = true;
     callLuaFunction(scriptName, "fufudezheng", "bb>b", bx, by, &bz);
     psln(bz);
 
