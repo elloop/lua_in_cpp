@@ -37,3 +37,7 @@ function fufudezheng(x, y)
     end
 end
 
+function returnStr()
+    return "hello world"
+end
+

@@ -78,6 +78,14 @@ void callLuaFunction(const std::string& script, const std::string& funcName, con
             }
             *va_arg(varg, bool*) = lua_toboolean(lua, -returnValueLeft);
         }
+        else if (*iter == 's') {
+            if (!lua_isstring(lua, -returnValueLeft)) {
+                error(lua, "%d-th return value should be string", numberOfReturn - returnValueLeft + 1);
+            }
+            const char* s = lua_tostring(lua, -returnValueLeft);
+            *va_arg(varg, const char**) = s;
+            // *va_arg(varg, char**) = lua_tostring(lua, -returnValueLeft);
+        }
         else {
             error(lua, "unsupported return type: %c", *iter);
         }
@@ -111,6 +119,13 @@ void testLuaCaller() {
     bx = false, by = false, bz = true;
     callLuaFunction(scriptName, "fufudezheng", "bb>b", bx, by, &bz);
     psln(bz);
+
+    // char s[100];
+    const char* s;
+    // memset(s, 0, 100);
+    // s point to a const char* in lua stack, i want to know in which case this will cause a problem.
+    callLuaFunction(scriptName, "returnStr", ">s", &s);
+    psln(s);
 
 }
 
