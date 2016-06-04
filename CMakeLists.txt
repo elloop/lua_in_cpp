@@ -23,6 +23,7 @@ set(SRC_LIST
     src/print_lua_stack.cpp
     src/extend_program_demo.cpp
     src/lua_function_caller.cpp
+    src/lua_call_cpp.cpp
 
     # lua source codes
     src/lua_51/lapi.c
