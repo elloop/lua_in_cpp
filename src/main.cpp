@@ -8,7 +8,7 @@ int main() {
     // simple_lua_interprator();
     // testPrintStackFunction();
     // testExtendProgram();
-    testLuaCaller();
+    // testLuaCaller();
 
     testCallCpp();
 
