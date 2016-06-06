@@ -1,3 +1,13 @@
+package.cpath = package.cpath .. ":../../lib/"
 require "ellibs"
-x = sqrt(100)
+
+local x = ellibs.listdir(".")
+
+print(type(x))
+
+if type(x) == "table" then
+    for k,v in pairs(x) do
+        print("k, v = " .. tostring(k) .. ", " .. tostring(v))
+    end
+end
 

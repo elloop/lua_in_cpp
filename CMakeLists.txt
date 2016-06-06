@@ -15,16 +15,10 @@ set(CMAKE_CXX_FLAGS_DEBUG   "-O0" )
 set(CMAKE_CXX_FLAGS_RELEASE "-O2 -finline-limit=1000 -DNDEBUG " )
 
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/bin/)
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/bin/)
+set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/lib/)
 
-set(SRC_LIST
-    src/main.cpp
-    src/include/lua_util.cpp
-    src/simple_lua_interpreter.cpp
-    src/print_lua_stack.cpp
-    src/extend_program_demo.cpp
-    src/lua_function_caller.cpp
-    src/lua_call_cpp.cpp
-
+set(LUA_SRC
     # lua source codes
     src/lua_51/lapi.c
     src/lua_51/lauxlib.c
@@ -56,11 +50,38 @@ set(SRC_LIST
     src/lua_51/lvm.c
     src/lua_51/lzio.c
     src/lua_51/print.c
-    )
+)
+
+set(SRC_LIST
+    src/main.cpp
+    src/include/lua_util.cpp
+    src/simple_lua_interpreter.cpp
+    src/print_lua_stack.cpp
+    src/extend_program_demo.cpp
+    src/lua_function_caller.cpp
+    src/lua_call_cpp.cpp
+
+    ${LUA_SRC}
+)
 
 foreach(src ${SRC_LIST})
     #message("src: " ${src})
 endforeach()
 
 add_executable(${PROJECT_NAME} ${SRC_LIST})
+
+message("========================== build dynamic lib for lua ========================== ")
+
+set(LUA_SO_NAME ellua)
+
+set(DIR_UTIL_SRC
+    src/lua_call_cpp.cpp
+    ${LUA_SRC}
+)
+
+foreach(src ${DIR_UTIL_SRC})
+    message("src for " ${LUA_SO_NAME} ": " ${src})
+endforeach()
+
+add_library(${LUA_SO_NAME} SHARED ${DIR_UTIL_SRC})
 

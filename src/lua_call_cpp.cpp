@@ -7,13 +7,6 @@
 
 using namespace elloop;
 
-static int l_sqrt(lua_State* lua) {
-    double n = lua_tonumber(lua, 1);
-    lua_pushnumber(lua, sqrt(n));
-    return 1;
-}
-
-
 static int l_listdir(lua_State* lua) {
     const char* pathName = luaL_checkstring(lua, 1);
 
@@ -39,17 +32,13 @@ static int l_listdir(lua_State* lua) {
     return 1;
 }
 
-static const struct luaL_Reg ellibs[] = {
+static const struct luaL_Reg dirutil[] = {
     {"listdir", l_listdir},
     {NULL, NULL}
 };
 
-int luaopen_ellibs(lua_State* lua) {
-    luaL_register(lua, "ellibs", ellibs);
+int luaopen_ellua(lua_State* lua) {
+    luaL_register(lua, "ellua", dirutil);
     return 1;
 }
 
-void testCallCpp() {
-    // const char* pathName = luaL_checkstring(lua, 1);
-    psln(__func__);
-}
