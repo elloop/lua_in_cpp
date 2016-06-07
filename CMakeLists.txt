@@ -50,6 +50,8 @@ set(LUA_SRC
     src/lua_51/lvm.c
     src/lua_51/lzio.c
     src/lua_51/print.c
+    #src/lua_51/lua.c
+    #src/lua_51/luac.c
 )
 
 set(SRC_LIST
@@ -59,7 +61,6 @@ set(SRC_LIST
     src/print_lua_stack.cpp
     src/extend_program_demo.cpp
     src/lua_function_caller.cpp
-    src/lua_call_cpp.cpp
 
     ${LUA_SRC}
 )
@@ -75,7 +76,7 @@ message("========================== build dynamic lib for lua ==================
 set(LUA_SO_NAME ellua)
 
 set(DIR_UTIL_SRC
-    src/lua_call_cpp.cpp
+    src/lua_so.cpp
     ${LUA_SRC}
 )
 
@@ -84,4 +85,18 @@ foreach(src ${DIR_UTIL_SRC})
 endforeach()
 
 add_library(${LUA_SO_NAME} SHARED ${DIR_UTIL_SRC})
+
+message("========================== build modified lua interpreter ========================== ")
+set(LUA_INTER_SRC
+    src/lua_call_cpp.c
+    src/lua_51/lua.c
+    src/lua_51/luac.c
+    ${LUA_SRC}
+)
+
+foreach(src ${LUA_INTER_SRC})
+    message("src for lua: " ${src})
+endforeach()
+
+add_executable(lua ${LUA_INTER_SRC})
 

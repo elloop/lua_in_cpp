@@ -1,16 +1,12 @@
 #include "lua_call_cpp.h"
-#include "include/inc.h"
-#include "lua_51/lua.hpp"
-#include <cmath>
 #include <dirent.h>
 #include <errno.h>
 
-using namespace elloop;
-
 static int l_listdir(lua_State* lua) {
-    const char* pathName = luaL_checkstring(lua, 1);
-
     DIR* dir;
+    struct dirent* entry;
+    int i;
+    const char* pathName = luaL_checkstring(lua, 1);
     dir = opendir(pathName);
     if (!dir) {
         lua_pushnil(lua);
@@ -19,9 +15,7 @@ static int l_listdir(lua_State* lua) {
     }
 
     lua_newtable(lua);                      //  stack: table
-
-    int i = 1;
-    dirent* entry;
+    i = 1;
     while (entry = readdir(dir)) {
         lua_pushnumber(lua, i++);           //  stack: table key
         lua_pushstring(lua, entry->d_name); //  stack: table key value

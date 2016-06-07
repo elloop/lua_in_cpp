@@ -13,6 +13,10 @@
 #include "lualib.h"
 #include "lauxlib.h"
 
+// elloop
+#include "lua_call_cpp.h"
+// end
+
 
 static const luaL_Reg lualibs[] = {
   {"", luaopen_base},
@@ -23,6 +27,9 @@ static const luaL_Reg lualibs[] = {
   {LUA_STRLIBNAME, luaopen_string},
   {LUA_MATHLIBNAME, luaopen_math},
   {LUA_DBLIBNAME, luaopen_debug},
+  // elloop
+  {LUA_ELLIB, luaopen_ellua},
+  // end
   {NULL, NULL}
 };
 
