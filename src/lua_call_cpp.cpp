@@ -3,10 +3,9 @@
 #include <errno.h>
 
 static int l_listdir(lua_State* lua) {
-    DIR* dir;
-    struct dirent* entry;
-    int i;
     const char* pathName = luaL_checkstring(lua, 1);
+
+    DIR* dir;
     dir = opendir(pathName);
     if (!dir) {
         lua_pushnil(lua);
@@ -15,7 +14,8 @@ static int l_listdir(lua_State* lua) {
     }
 
     lua_newtable(lua);                      //  stack: table
-    i = 1;
+    int i = 1;
+    dirent* entry;
     while (entry = readdir(dir)) {
         lua_pushnumber(lua, i++);           //  stack: table key
         lua_pushstring(lua, entry->d_name); //  stack: table key value
@@ -32,7 +32,7 @@ static const struct luaL_Reg dirutil[] = {
 };
 
 int luaopen_ellua(lua_State* lua) {
-    luaL_register(lua, "ellua", dirutil);
+    luaL_register(lua, LUA_ELLIB, dirutil);
     return 1;
 }
 

@@ -65,6 +65,7 @@ set(SRC_LIST
     ${LUA_SRC}
 )
 
+add_definitions( -DLUA_USE_MACOSX )
 foreach(src ${SRC_LIST})
     #message("src: " ${src})
 endforeach()
@@ -75,30 +76,14 @@ add_executable(${PROJECT_NAME} ${SRC_LIST})
 set(LUA_SO_NAME ellua)
 message("==================== script for " ${LUA_SO_NAME} "==================== ")
 
-set(DIR_UTIL_SRC
+set(LUA_SO_SRC
     src/lua_so.cpp
     ${LUA_SRC}
 )
 
-foreach(src ${DIR_UTIL_SRC})
+foreach(src ${LUA_SO_SRC})
     message("src for " ${LUA_SO_NAME} ": " ${src})
 endforeach()
 
-add_library(${LUA_SO_NAME} SHARED ${DIR_UTIL_SRC})
-
-set(MY_LUA_INTERPRETER lua)
-message("========================== script for" ${MY_LUA_INTERPRETER} " ========================== ")
-
-set(LUA_INTER_SRC
-    src/lua_call_cpp.c
-    src/lua_51/lua.c
-    src/lua_51/luac.c
-    ${LUA_SRC}
-)
-
-foreach(src ${LUA_INTER_SRC})
-    message("src for lua: " ${src})
-endforeach()
-
-add_executable(${MY_LUA_INTERPRETER} ${LUA_INTER_SRC})
+add_library(${LUA_SO_NAME} SHARED ${LUA_SO_SRC})
 
