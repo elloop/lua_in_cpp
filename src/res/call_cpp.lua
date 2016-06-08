@@ -1,9 +1,6 @@
-package.cpath = package.cpath .. ":../../lib/"
-require "ellibs"
+local x = ellua.listdir(".")
 
-local x = ellibs.listdir(".")
-
-print(type(x))
+print("ret type of ellua.listdir(): " .. type(x))
 
 if type(x) == "table" then
     for k,v in pairs(x) do
