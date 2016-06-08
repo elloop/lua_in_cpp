@@ -4,7 +4,6 @@ project(lua_in_cpp)
 # export compilation_database for YouCompleteMe Plugin in VIM.
 set( CMAKE_EXPORT_COMPILE_COMMANDS 1 )
 
-
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
 set(CXX_FLAGS -std=c++11 -g -Wall)
@@ -18,6 +17,7 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/bin/)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/bin/)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/lib/)
 
+message("==================== script for" ${PROJECT_NAME} " ==================== ")
 set(LUA_SRC
     # lua source codes
     src/lua_51/lapi.c
@@ -71,9 +71,9 @@ endforeach()
 
 add_executable(${PROJECT_NAME} ${SRC_LIST})
 
-message("========================== build dynamic lib for lua ========================== ")
 
 set(LUA_SO_NAME ellua)
+message("==================== script for " ${LUA_SO_NAME} "==================== ")
 
 set(DIR_UTIL_SRC
     src/lua_so.cpp
@@ -86,7 +86,9 @@ endforeach()
 
 add_library(${LUA_SO_NAME} SHARED ${DIR_UTIL_SRC})
 
-message("========================== build modified lua interpreter ========================== ")
+set(MY_LUA_INTERPRETER lua)
+message("========================== script for" ${MY_LUA_INTERPRETER} " ========================== ")
+
 set(LUA_INTER_SRC
     src/lua_call_cpp.c
     src/lua_51/lua.c
@@ -98,5 +100,5 @@ foreach(src ${LUA_INTER_SRC})
     message("src for lua: " ${src})
 endforeach()
 
-add_executable(lua ${LUA_INTER_SRC})
+add_executable(${MY_LUA_INTERPRETER} ${LUA_INTER_SRC})
 
