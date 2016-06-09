@@ -6,7 +6,7 @@ set( CMAKE_EXPORT_COMPILE_COMMANDS 1 )
 
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
-set(C_FLAGS -std=c99 -g -Wall)
+set(C_FLAGS -std=c99 -g -Wall -fvisibility=hidden)
 string(REPLACE ";" " " CMAKE_C_FLAGS "${C_FLAGS}")
 
 set(CMAKE_C_COMPILER      "clang" )
@@ -14,6 +14,8 @@ set(CMAKE_C_COMPILER      "clang" )
 set(CMAKE_C_FLAGS_DEBUG   "-O0" )
 
 #set(CMAKE_C_FLAGS_RELEASE "-O2 -finline-limit=1000 -DNDEBUG " )
+
+add_definitions( -DLUA_USE_MACOSX )
 
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/bin/)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/lib/)
