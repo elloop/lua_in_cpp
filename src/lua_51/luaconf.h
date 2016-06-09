@@ -149,11 +149,15 @@
 
 #else
 
-#define LUA_API		extern
+// elloop
+// #define LUA_API		extern
 
 #endif
 
 /* more often than not the libs go together with the core */
+// elloop 
+// #define LUA_API __attribute__((visibility("default"))) extern
+#define LUA_API __attribute__((visibility("hidden"))) extern
 #define LUALIB_API	LUA_API
 
 
@@ -176,7 +180,10 @@
 #define LUAI_DATA	LUAI_FUNC
 
 #else
-#define LUAI_FUNC	extern
+//#define LUAI_FUNC	extern
+// elloop modified
+#define LUAI_FUNC	__attribute__((visibility("hidden"))) extern
+
 #define LUAI_DATA	extern
 #endif
 

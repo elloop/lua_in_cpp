@@ -6,7 +6,7 @@ set( CMAKE_EXPORT_COMPILE_COMMANDS 1 )
 
 include_directories(${PROJECT_SOURCE_DIR}/src)
 
-set(CXX_FLAGS -std=c++11 -g -Wall)
+set(CXX_FLAGS -std=c++11 -g -Wall -fPIC -fvisibility=hidden)
 string(REPLACE ";" " " CMAKE_CXX_FLAGS "${CXX_FLAGS}")
 
 set(CMAKE_CXX_COMPILER      "clang++" )
@@ -84,6 +84,9 @@ set(LUA_SO_SRC
 foreach(src ${LUA_SO_SRC})
     message("src for " ${LUA_SO_NAME} ": " ${src})
 endforeach()
+
+
+#set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} " -fvisibility=hidden" )
 
 add_library(${LUA_SO_NAME} SHARED ${LUA_SO_SRC})
 
