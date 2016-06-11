@@ -65,7 +65,11 @@ set(SRC_LIST
     ${LUA_SRC}
 )
 
-add_definitions( -DLUA_USE_MACOSX )
+if (APPLE)
+    set(CMAKE_SHARED_LIBRARY_SUFFIX ".so")
+    add_definitions( -DLUA_USE_MACOSX )
+endif(APPLE)
+
 foreach(src ${SRC_LIST})
     #message("src: " ${src})
 endforeach()
