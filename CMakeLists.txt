@@ -65,7 +65,12 @@ set(SRC_LIST
     ${LUA_SRC}
 )
 
+if (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    # Clang Compiler
+endif()
+
 if (APPLE)
+    message("platform: OS X")
     set(CMAKE_SHARED_LIBRARY_SUFFIX ".so")
     add_definitions( -DLUA_USE_MACOSX )
 endif(APPLE)
@@ -89,8 +94,14 @@ foreach(src ${LUA_SO_SRC})
     message("src for " ${LUA_SO_NAME} ": " ${src})
 endforeach()
 
-
 #set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} " -fvisibility=hidden" )
 
-add_library(${LUA_SO_NAME} SHARED ${LUA_SO_SRC})
+if (APPLE)
+    add_library(${LUA_SO_NAME} MODULE ${LUA_SO_SRC})        # a bunlde on mac os
+else (APPLE)
+    add_library(${LUA_SO_NAME} SHARED ${LUA_SO_SRC})        # will be a dylib on mac.
+endif(APPLE)
+
+# specify a new name for ${LUA_SO_NAME}
+#set_target_properties(${LUA_SO_NAME} PROPERTIES OUTPUT_NAME dog)   # will generate a libdog.so instead of libellua.so
 

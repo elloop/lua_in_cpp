@@ -1,6 +1,6 @@
-package.cpath = package.cpath .. ";../lib/"
-print(package.cpath)
-require "ellua"
+package.cpath = package.cpath .. ";../lib/?.so"
+
+require "ellua"         -- dynamic load libellua.so under ../lib/ 
 
 local x = ellua.listdir(".")
 
