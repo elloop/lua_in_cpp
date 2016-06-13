@@ -9,11 +9,13 @@ include_directories(${PROJECT_SOURCE_DIR}/src)
 set(CXX_FLAGS -std=c++11 -g -Wall -fPIC -fvisibility=hidden)
 string(REPLACE ";" " " CMAKE_CXX_FLAGS "${CXX_FLAGS}")
 
-set(CMAKE_CXX_COMPILER      "clang++" )
+if (APPLE)
+    set(CMAKE_CXX_COMPILER      "clang++" )
+endif(APPLE)
+
 set(CMAKE_CXX_FLAGS_DEBUG   "-O0" )
 set(CMAKE_CXX_FLAGS_RELEASE "-O2 -finline-limit=1000 -DNDEBUG " )
 
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/bin/)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/bin/)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/lib/)
 
@@ -72,11 +74,11 @@ endif()
 if (APPLE)
     message("platform: OS X")
     set(CMAKE_SHARED_LIBRARY_SUFFIX ".so")
-    add_definitions( -DLUA_USE_MACOSX )
+    add_definitions( -DLUA_USE_MACOSX )     # enable dynamic linking for lua.
 endif(APPLE)
 
 foreach(src ${SRC_LIST})
-    #message("src: " ${src})
+    message(${src})
 endforeach()
 
 add_executable(${PROJECT_NAME} ${SRC_LIST})
@@ -91,7 +93,7 @@ set(LUA_SO_SRC
 )
 
 foreach(src ${LUA_SO_SRC})
-    message("src for " ${LUA_SO_NAME} ": " ${src})
+    message(${src})
 endforeach()
 
 #set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} " -fvisibility=hidden" )
