@@ -2,6 +2,7 @@
 #include "lua_function_caller.h"
 #include "print_lua_stack.h"
 #include "simple_lua_interpreter.h"
+#include "c_array_oper.h"
 #include "include/inc.h"
 
 
@@ -10,8 +11,8 @@ int main() {
     // testPrintStackFunction();
     // testExtendProgram();
     // testLuaCaller();
-
     runScriptWithLibOpen("res/call_cpp.lua");
 
+    // testArrayOperApi();
     return 0;
 }

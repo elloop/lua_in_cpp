@@ -186,6 +186,11 @@
 },
 {
   "directory": "/Users/sunyongjian1/codes/lua_in_cpp/build",
+  "command": "clang++   -DLUA_USE_MACOSX -std=c++11 -g -Wall -fPIC -fvisibility=hidden -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp/src    -o CMakeFiles/lua_in_cpp.dir/src/c_array_oper.cpp.o -c /Users/sunyongjian1/codes/lua_in_cpp/src/c_array_oper.cpp",
+  "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/c_array_oper.cpp"
+},
+{
+  "directory": "/Users/sunyongjian1/codes/lua_in_cpp/build",
   "command": "/usr/bin/cc  -DLUA_USE_MACOSX  -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -I/Users/sunyongjian1/codes/lua_in_cpp/src    -o CMakeFiles/lua_in_cpp.dir/src/lua_51/lapi.c.o   -c /Users/sunyongjian1/codes/lua_in_cpp/src/lua_51/lapi.c",
   "file": "/Users/sunyongjian1/codes/lua_in_cpp/src/lua_51/lapi.c"
 },
