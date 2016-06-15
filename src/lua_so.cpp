@@ -20,7 +20,7 @@ static int l_listdir(lua_State* lua) {
 
     int i = 1;
     dirent* entry;
-    while (entry = readdir(dir)) {
+    while ((entry = readdir(dir)) != NULL) {
         lua_pushnumber(lua, i++);           //  stack: table key
         lua_pushstring(lua, entry->d_name); //  stack: table key value
         lua_settable(lua, -3);
@@ -43,14 +43,34 @@ static int l_mapArray(lua_State* lua) {
     return 0;
 }
 
-static const struct luaL_Reg dirutil[] = {
+static int l_split(lua_State* lua) {
+    const char* str = luaL_checkstring(lua, -2);
+    const char* delim = luaL_checkstring(lua, -1);
+    const char* p;
+
+    int i(1);
+    lua_newtable(lua);      // the return value: a table.
+    while ((p = strchr(str, *delim)) != NULL) {
+        lua_pushlstring(lua, str, p - str + 1);
+        lua_rawseti(lua, -2, i++);
+        str = p + 1;
+    }
+
+    lua_pushstring(lua, str);
+    lua_rawseti(lua, -2, i);
+
+    return 1;       // return the table.
+}
+
+static const struct luaL_Reg ellibs[] = {
     {"listdir", l_listdir},
     {"mapArray", l_mapArray},
+    {"splitStr", l_split},
     {NULL, NULL}
 };
 
 int luaopen_ellua(lua_State* lua) {
-    luaL_register(lua, "ellua", dirutil);
+    luaL_register(lua, "ellua", ellibs);
     return 1;
 }
 

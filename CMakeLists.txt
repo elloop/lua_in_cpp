@@ -19,7 +19,7 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O2 -finline-limit=1000 -DNDEBUG " )
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/bin/)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/build/lib/)
 
-message("==================== script for" ${PROJECT_NAME} " ==================== ")
+#message("==================== script for" ${PROJECT_NAME} " ==================== ")
 set(LUA_SRC
     # lua source codes
     src/lua_51/lapi.c
@@ -79,25 +79,32 @@ if (APPLE)
 endif(APPLE)
 
 foreach(src ${SRC_LIST})
-    message(${src})
+    #message(${src})
 endforeach()
 
 add_executable(${PROJECT_NAME} ${SRC_LIST})
 
 
 set(LUA_SO_NAME ellua)
-message("==================== script for " ${LUA_SO_NAME} "==================== ")
+#message("==================== script for " ${LUA_SO_NAME} "==================== ")
 
 set(LUA_SO_SRC
     src/lua_so.cpp
-    ${LUA_SRC}
+
+    # DO NOT link with liblua.a when building shared object. Fix "pointer being freed was not allocated" error
+    # ${LUA_SRC}    
 )
 
 foreach(src ${LUA_SO_SRC})
-    message(${src})
+    #message(${src})
 endforeach()
 
 #set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} " -fvisibility=hidden" )
+
+set(IGNORE_UNDEFINED_SYMBOLS ${CMAKE_CXX_FLAGS}  " -undefined dynamic_lookup")
+string(REPLACE ";" " " CMAKE_CXX_FLAGS "${IGNORE_UNDEFINED_SYMBOLS}")
+
+message("CMAKE_CXX_FLAGS " ${CMAKE_CXX_FLAGS})
 
 if (APPLE)
     add_library(${LUA_SO_NAME} MODULE ${LUA_SO_SRC})        # a bunlde on mac os

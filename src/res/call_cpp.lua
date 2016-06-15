@@ -2,7 +2,6 @@ package.cpath = package.cpath .. ";../lib/?.so"
 
 local el = require "ellua"         -- dynamic load libellua.so under ../lib/ 
 
-
 function testListdir()
     local cd = "."
     local x = el.listdir(cd)
@@ -32,6 +31,19 @@ function testMapArray()
     end
 end
 
+function testSplitStr()
+    local ary = el.splitStr("seperated by space", " ")
+    print("el## return type of splitStr(): " .. type(ary))
+    if type(ary) == "table" then
+        for i=1, #ary do
+            print(ary[i])
+        end
+    end
+end
+
 testListdir()
+
 testMapArray()
+
+testSplitStr()
 
