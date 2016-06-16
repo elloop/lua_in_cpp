@@ -2,6 +2,7 @@
 #include "include/inc.h"
 #include <dirent.h>
 #include <errno.h>
+#include <string>
 
 using namespace elloop;
 
@@ -62,10 +63,36 @@ static int l_split(lua_State* lua) {
     return 1;       // return the table.
 }
 
+static int l_split2(lua_State* lua) {
+    using std::string;
+    string str(luaL_checkstring(lua, -2));
+    string delim(luaL_checkstring(lua, -1));
+
+    lua_newtable(lua);      // the return value: a table.
+
+    int i(1);
+    string::size_type p, q;
+    q = 0;
+    p = str.find(delim, q);
+    while ( p != string::npos) {
+        string s = str.substr(q, p-q);
+        lua_pushstring(lua, s.c_str());
+        lua_rawseti(lua, -2, i++);
+        q = p + 1;
+        p = str.find(delim, q);
+    }
+
+    lua_pushstring(lua, str.substr(q).c_str());
+    lua_rawseti(lua, -2, i);
+
+    return 1;
+}
+
 static const struct luaL_Reg ellibs[] = {
     {"listdir", l_listdir},
     {"mapArray", l_mapArray},
     {"splitStr", l_split},
+    {"splitStrUsingSTL", l_split2},
     {NULL, NULL}
 };
 

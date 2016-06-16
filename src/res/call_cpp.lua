@@ -32,8 +32,18 @@ function testMapArray()
 end
 
 function testSplitStr()
-    local ary = el.splitStr("seperated by space", " ")
+    local ary = el.splitStr("seperated by space e sp ", " ")
     print("el## return type of splitStr(): " .. type(ary))
+    if type(ary) == "table" then
+        for i=1, #ary do
+            print(ary[i])
+        end
+    end
+end
+
+function testSplitStrSTL()
+    local ary = el.splitStrUsingSTL("seperated by space e sp ", " ")
+    print("el## return type of splitStrUsingSTL(): " .. type(ary))
     if type(ary) == "table" then
         for i=1, #ary do
             print(ary[i])
@@ -46,4 +56,6 @@ testListdir()
 testMapArray()
 
 testSplitStr()
+
+testSplitStrSTL()
 
