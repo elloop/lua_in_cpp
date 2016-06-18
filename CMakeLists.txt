@@ -64,6 +64,7 @@ set(SRC_LIST
     src/extend_program_demo.cpp
     src/lua_function_caller.cpp
     src/c_array_oper.cpp
+    src/luatest.cpp
 
     ${LUA_SRC}
 )

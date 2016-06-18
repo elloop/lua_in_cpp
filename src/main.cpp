@@ -4,6 +4,7 @@
 #include "simple_lua_interpreter.h"
 #include "c_array_oper.h"
 #include "include/inc.h"
+#include "luatest.h"
 
 
 int main() {
@@ -11,8 +12,10 @@ int main() {
     // testPrintStackFunction();
     // testExtendProgram();
     // testLuaCaller();
-    runScriptWithLibOpen("res/call_cpp.lua");
-
     // testArrayOperApi();
+    // runScriptWithLibOpen("res/call_cpp.lua");
+
+    runLuaTest();
+
     return 0;
 }
