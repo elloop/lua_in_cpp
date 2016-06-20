@@ -19,7 +19,9 @@ void testLuaRegistry() {
     psln(savedStr);
 
     lua_close(lua);
+}
 
+void developSmallGames() {
 }
 
 void runLuaTest() {
