@@ -67,3 +67,7 @@ function testTuple()
     print(x())
 end
 
+function backsoon()
+    local s = "i am busy developing my own games recently, so maybe i will not log in github everyday"
+    return s
+end
