@@ -69,5 +69,6 @@ end
 
 function backsoon()
     local s = "i am busy developing my own games recently, so maybe i will not log in github everyday"
+    local d22 = "decide to use cocos code ide and quick to develop the game, and vim as the code editor"
     return s
 end
