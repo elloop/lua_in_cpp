@@ -1,4 +1,5 @@
 cmake_minimum_required ( VERSION 3.0)
+
 project(lua_in_cpp)
 
 # export compilation_database for YouCompleteMe Plugin in VIM.
