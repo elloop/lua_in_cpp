@@ -179,7 +179,25 @@ function completeIO:createBigFile()
     f:close()
 end
 
+local dumpHex = function(filename)
+    local f = assert(io.open(filename, "rb"))
+    local block = 16
+    while true do
+        local bytes = f:read(block)
+        if not bytes then
+            break
+        end
+        for _,b in ipairs{string.byte(bytes, 1, -1)} do
+            io.write(string.format("%02X ", b))
+        end
+        io.write(string.rep("   ", block - string.len(bytes)))
+        io.write(" ", string.gsub(bytes, "%c", "."), "\n")
+    end
+end
+
 -- simpleIO:test()
-completeIO:test()
+-- completeIO:test()
+
+dumpHex("io_test.lua")
 
 
