@@ -193,11 +193,12 @@ local dumpHex = function(filename)
         io.write(string.rep("   ", block - string.len(bytes)))
         io.write(" ", string.gsub(bytes, "%c", "."), "\n")
     end
+    f:close()
 end
 
 -- simpleIO:test()
 -- completeIO:test()
 
-dumpHex("io_test.lua")
+dumpHex("main.lua")
 
 
