@@ -1,5 +1,7 @@
--- simple io, read, write, 
--- integrate io module. io.input, io.output, io.open()
+--
+-- simple io module: read, write, 
+--
+-- complete io module: io.input, io.output, io.open()
 
 local fnames = {
     "print", -- write to stdin.
@@ -45,7 +47,9 @@ function simpleIO:write()
     -- io.write("a" .. a .. "b" .. b .. "c" .. c) -- do not do this. 
 end
 
-----------------------------------integerate module ------------------------------------
+-- simpleIO:test()
+
+----------------------------------complete module ------------------------------------
 
 local completeIO = {}
 
@@ -58,7 +62,6 @@ function completeIO:test()
     -- self:predefinedHandle()
     -- self:switchHandle()
     self:fastReadBigFile()
-    -- self:createBigFile()
 end
 
 -- io.open and read.
@@ -85,7 +88,7 @@ function completeIO:open()
     end
 
     local f = assert(io.open("main.lua", "r"))
-    local lines = f:read("*all")
+    local lines = f:read("*all") -- read from io handle: f
     -- local lines = io.read("*all") -- this is still reading from stdin 
     print("el## lines: " .. lines)
     f:close()
@@ -133,7 +136,14 @@ function completeIO:fastReadBigFile()
     
     local t1 = os.time()
     local fileName = "big_file"
-    local f = assert(io.open(fileName, "r"))
+
+    -- try to open the big_file, if not exitst, create it first. 
+    local f = io.open(fileName, "r")
+    if not f then
+        self:createBigFile()
+        f = assert(io.open(fileName, "r"))
+    end
+
     -- local allLines = f:read("*all") -- this will be impossible if the file is very big.
     -- we should read by block when we meet big files.
     local BLOCK_SIZE = 2^18 -- 32K 
@@ -149,27 +159,18 @@ function completeIO:fastReadBigFile()
             content = content .. rest .. "\n"
         end
 
-        -- count = count + 1
-        -- if count % 50 == 0  then
-            -- print("el## count: " .. count)
-            -- print("el## content:   " .. content)
-        -- end
-
-        -- now content is a whole block with the entire line. 
+        -- now content is a whole block.
         allLines = allLines .. content -- we don't sugguset use concat this way.
     end
-    -- now allLines will be the whole content of the file.
+
     -- print("el## allLines: " .. allLines)
-
-    local t2 = os.time()
-
-    print("el## t2 - t1: " .. (t2 - t1))
-
-    -- now we create a very big file. 
+    
+    print("el## time consumed: " .. (os.time() - t1))
 end
 
 function completeIO:createBigFile()
-    -- create a big string file, with line nubmer very line, so that we will be easy to read the output of the reading content.
+    -- create a big string file, with line nubmer very line, 
+    -- so that we will be easy to read the output of the reading content.
     local fileName = "big_file"
     local lines = 2^20 -- 1M lines 
     local f = assert(io.open(fileName, "w"))
@@ -179,6 +180,11 @@ function completeIO:createBigFile()
     f:close()
 end
 
+-- completeIO:test() 
+
+----------------------------------examples from PIL------------------------------------ 
+
+-- dump a text file as a hex format, examples from PIL 
 local dumpHex = function(filename)
     local f = assert(io.open(filename, "rb"))
     local block = 16
@@ -196,9 +202,41 @@ local dumpHex = function(filename)
     f:close()
 end
 
--- simpleIO:test()
--- completeIO:test()
+local output = [[
+6C 6F 63 61 6C 20 68 20 3D 20 72 65 71 75 69 72  local h = requir
+65 20 22 74 65 73 74 2F 74 22 0A 0A 69 66 20 68  e "test/t"..if h
+20 74 68 65 6E 0A 20 20 20 20 70 72 69 6E 74 28   then.    print(
+74 6F 73 74 72 69 6E 67 28 68 29 29 0A 65 6E 64  tostring(h)).end
+0A 0A 0A                                         ...
+]]
 
-dumpHex("main.lua")
+----------------------------------fseek------------------------------------
 
+-- use seek()  to get the file size.
+local fileSize = function(f)
+    local cur = f:seek() -- the same of f:see("cur", 0) 
+
+    -- don't need set to begin of file, seek always return the position relative to the begin.
+    -- f:seek("set")       
+
+    local size = f:seek("end")
+    f:seek("set", cur)
+    return size
+end
+
+local testSeek = function()
+    local f = assert(io.open("io_test.lua"))
+    print("read a line: " .. tostring(f:read("*line")))
+
+    print("el## go to end of file")
+    f:seek("end")
+    print("read a line: " .. tostring(f:read("*line"))) -- nil 
+
+    f:seek("end", -300)  -- back 200 bytes 
+    print("read a line: " .. tostring(f:read("*line"))) 
+
+    f:close()
+end
+
+testSeek()
 
