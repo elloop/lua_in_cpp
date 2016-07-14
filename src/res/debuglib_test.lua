@@ -1,10 +1,12 @@
 local overview = 
 [[
-    LIB_NAME     : debug
-    "getinfo"    : call with a function or with a number indicating the stack level.
-                 : return a table of decription of the arg.
-                 : notice: low efficiency, use second arg to specified concrete info you need.
-    "traceback"  : return a traceback string.
+    LIB_NAME       : debug
+    "getinfo"      : call with a function or with a number indicating the stack level.
+                   : return a table of decription of the arg.
+                   : notice: low efficiency, use second arg to specified concrete info you need.
+    "traceback"    : return a traceback string.
+    "getlocal"     : getlocal variable info
+    "getupvalue" : get 
 ]]
 
 local debugLibTest = { 
@@ -55,6 +57,65 @@ debugLibTest.cases["getlocal"] = {
     args = {10, 20}
 }
 
+debugLibTest.cases["getupvalue"] = {
+    f = function()
+        local val, found 
+
+        -- try local
+        for i=1,math.huge do
+            local n, v = debug.getlocal(2, i)
+            if not n then break end
+            if n == name then
+                val = v
+                found = true
+            end
+        end
+        if found then
+            return val
+        end
+
+        -- try non-local 
+        local func = debug.getinfo(2, "f").func
+        for i=1, math.huge do
+            local n, v = debug.getupvalue(func, i)
+            if not n then
+                break
+            end
+            if n == name then
+                return v
+            end
+        end
+
+        -- still not found, try env.
+        return getfenv(func)[name]
+    end,
+    args = {"test"}
+}
+
+debugLibTest.cases["trace coroutine"] = {
+    f = function()
+        co = coroutine.create(function()
+            local x = 10
+            coroutine.yield()
+            error("some error")
+        end)
+
+        coroutine.resume(co)
+        print(debug.traceback(co))
+    end
+}
+
+-- how to print vaargs 
+local ap = function(val)
+    if type(val) == "table" then
+        for i=1, #val do
+            print(string.format("[%d] = %s", i, tostring(val[i])))
+        end
+    else
+        print(tostring(val))
+    end
+end
+
 debugLibTest.test = function(self)
     for k,case in pairs(self.cases) do
         if not case.skip then
@@ -62,17 +123,21 @@ debugLibTest.test = function(self)
             if type(case.f) ~= "function"  then
                 print(string.format("-- skip case: %s, not a function", k))
             else
+                local ret
                 if case.args then
                     print("call with args: " .. unpack(case.args))
-                    case.f(unpack(case.args))
+                    ret = case.f(unpack(case.args))
                 else
-                    case.f()
+                    ret = case.f()
                 end
+                print("----------ret:")
+                ap(ret);
             end
             print(string.format("===================== end of case: %s =====================\n", k))
         end
     end
 end
+
 
 debugLibTest.cases["getinfo"].skip    = false
 
