@@ -58,7 +58,7 @@ debugLibTest.cases["getlocal"] = {
 }
 
 debugLibTest.cases["getupvalue"] = {
-    f = function()
+    f = function(name)
         local val, found 
 
         -- try local
@@ -89,7 +89,9 @@ debugLibTest.cases["getupvalue"] = {
         -- still not found, try env.
         return getfenv(func)[name]
     end,
-    args = {"test"}
+    -- args = {"traceback"}
+    -- args = {"overview"}
+    args = {"valForUpvalue"} -- defined in the debugLibTest.test function 
 }
 
 debugLibTest.cases["trace coroutine"] = {
@@ -124,6 +126,7 @@ debugLibTest.test = function(self)
                 print(string.format("-- skip case: %s, not a function", k))
             else
                 local ret
+                local valForUpvalue = 101
                 if case.args then
                     print("call with args: " .. unpack(case.args))
                     ret = case.f(unpack(case.args))
@@ -142,4 +145,36 @@ end
 debugLibTest.cases["getinfo"].skip    = false
 
 debugLibTest:test()
+
+local tt=function(name)
+    local val, found 
+
+    -- try local
+    for i=1,math.huge do
+        local n, v = debug.getlocal(2, i)
+        if not n then break end
+        if n == name then
+            val = v
+            found = true
+        end
+    end
+    if found then
+        return val
+    end
+
+    -- try non-local 
+    local func = debug.getinfo(2, "f").func
+    for i=1, math.huge do
+        local n, v = debug.getupvalue(func, i)
+        if not n then
+            break
+        end
+        if n == name then
+            return v
+        end
+    end
+
+    -- still not found, try env.
+    return getfenv(func)[name]
+end
 
