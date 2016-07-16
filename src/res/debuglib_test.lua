@@ -1,12 +1,13 @@
 local overview = 
 [[
-    LIB_NAME       : debug
-    "getinfo"      : call with a function or with a number indicating the stack level.
-                   : return a table of decription of the arg.
-                   : notice: low efficiency, use second arg to specified concrete info you need.
-    "traceback"    : return a traceback string.
-    "getlocal"     : getlocal variable info
-    "getupvalue" : get 
+    LIB_NAME        : debug
+    "getinfo"       : call with a function or with a number indicating the stack level.
+                    : return a table of decription of the arg.
+                    : notice: low efficiency, use second arg to specified concrete info you need.
+    "traceback"     : return a traceback string.
+    "getlocal"      : getlocal variable info
+    "getupvalue"    : get non-local variable info
+    "sethook"       :
 ]]
 
 local debugLibTest = { 
@@ -104,6 +105,17 @@ debugLibTest.cases["trace coroutine"] = {
 
         coroutine.resume(co)
         print(debug.traceback(co))
+    end
+}
+
+debugLibTest.cases["sethook"] = {
+    f = function()
+        debug.sethook(print, "l")
+        print("hello world")
+        print("hello world")
+        print("hello world")
+        print("hello world")
+        print("hello world")
     end
 }
 
