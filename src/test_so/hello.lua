@@ -1,3 +1,3 @@
 require "test"
 
-print(test.add(10))
+print(test.add(2))

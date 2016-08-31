@@ -13,9 +13,9 @@ int main() {
     // testExtendProgram();
     // testLuaCaller();
     // testArrayOperApi();
-    // runScriptWithLibOpen("res/call_cpp.lua");
+    runScriptWithLibOpen("res/call_cpp.lua");
 
-    runLuaTest();
+    // runLuaTest();
 
     return 0;
 }
